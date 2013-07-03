@@ -1,0 +1,22 @@
+{
+  "name": "ast-replace-this",
+  "version": "1.0.0",
+  "description": "change the this of code",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/nathan7/ast-replace-this.git"
+  },
+  "keywords": [
+    "ast",
+    "this",
+    "context",
+    "esparse",
+    "esprima"
+  ],
+  "author": "Nathan Zadoks",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nathan7/ast-replace-this/issues"
+  }
+}
