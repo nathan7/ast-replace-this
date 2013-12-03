@@ -18,5 +18,8 @@
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/nathan7/ast-replace-this/issues"
+  },
+  "dependencies": {
+    "esmap": "~1.1.0"
   }
 }

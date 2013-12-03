@@ -1,19 +1,20 @@
-module.exports = exports = ReplaceThis
-exports.ReplaceThis = ReplaceThis
+'use strict';
+module.exports = replaceThis
 
-function ReplaceThis(expression, recurse) {
-  recurse = !!recurse
-  var depth = -1
-  return (
-  { enter: function(node, parent) {
-      if (node.type === 'FunctionExpression' || node.type === 'FunctionDeclaration' || node.type === 'Program')
-        depth++
-      if ((recurse || depth <= 0) && node.type === 'ThisExpression')
-        return expression
-    }
-  , leave: function(node, parent) {
-      if (node.type === 'FunctionExpression' || node.type === 'FunctionDeclaration' || node.type === 'Program')
-        depth--
-    }
-  })
+var map = require('esmap')
+
+function replaceThis(node, replacement, recurse) {
+  return replace(node)
+
+  function replace(node) {
+    if (!node) return
+
+    if (node.type === 'ThisExpression')
+      return replacement
+
+    if (!recurse && (node.type === 'FunctionDeclaration' || node.type === 'FunctionExpression'))
+      return node
+
+    return map(node, replace)
+  }
 }
